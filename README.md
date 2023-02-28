@@ -8,11 +8,11 @@ Please follow the instructions below and fill in the information requested when 
 
 ## Student Information
 
-|               | Information   |
-|:-------------:|:-------------:|
-| Student Name  | name-here     |
-| Student ID    | id-here       |
-| Student Email | email-here    |
+|               |              Information              |
+| :-----------: | :-----------------------------------: |
+| Student Name  | Kullathon "Mos" Sitthisarnwattanachai |
+|  Student ID   |               921425216               |
+| Student Email | ksitthisarnwattanachai@mail.sfsu.edu  |
 
 
 
@@ -24,4 +24,4 @@ Please follow the instructions below and fill in the information requested when 
 
 ## Run Instructions
 1. steps here
-2. steps here 
+2. steps here
