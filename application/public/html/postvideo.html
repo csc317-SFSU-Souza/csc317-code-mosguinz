@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Post video</title>
+</head>
+
+<body>
+    <header>
+        <h1>Post video</h1>
+        <nav>
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="login.html">Login</a></li>
+                <li><a href="postvideo.html">Post video</a></li>
+                <li><a href="profile.html">Profile</a></li>
+                <li><a href="registration.html">Registration</a></li>
+                <li><a href="viewpost.html">View post</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <h2>Upload</h2>
+        <form action="upload.php">
+            <label for="video-title">Title</label>
+            <input type="text" name="video-title" id="video-title" placeholder="Video title">
+            <br>
+            <label for="video-description">Description</label>
+            <br>
+            <textarea name="video-description" id="video-description" placeholder="Describe your video"></textarea>
+            <br>
+            <label for="video-file">Upload your file</label>
+            <br>
+            <input type="file" id="video-file" name="video-file" accept="video/mp4, video/webm, video/ogg">
+            <br><br>
+            <input type="checkbox" name="confirm-aup" id="confirm-aup" required="true">
+            <label for="confirm-aup">By uploading this video, I agree to the <a href="">AUP</a>.</label>
+            <br><br>
+            <input type="submit" value="Upload" onsubmit="">
+        </form>
+    </main>
+</body>
+
+</html>
