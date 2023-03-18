@@ -35,18 +35,16 @@ nav li a {
     text-decoration: none;
 }
 
+nav li a:hover {
+    background-color: #111;
+}
+
 footer {
     display: block;
     background-color: #00B7FF;
     padding: 10px;
     text-align: center;
 }
-
-/* Change the link color to #111 (black) on hover */
-nav li a:hover {
-    background-color: #111;
-}
-
 
 a {
     color: #00B7FF;
