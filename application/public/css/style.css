@@ -1,8 +1,46 @@
 body {
-  padding: 50px;
-  font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+    font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
 }
 
+header {
+    padding: 10px;
+    color: white;
+    background: rgb(9, 9, 121);
+    background: linear-gradient(90deg, rgba(9, 9, 121, 1) 6%, rgba(7, 74, 160, 1) 51%, rgba(2, 192, 231, 1) 100%);
+}
+
+nav ul {
+    background: blue;
+    list-style-type: none;
+    display: grid;
+    grid-auto-flow: column;
+    margin: 0;
+    padding: 0;
+    top: 0;
+    width: 100%;
+    justify-content: start;
+    align-items: center;
+    align-content: center;
+}
+
+nav li {
+    float: left;
+}
+
+nav li a {
+    display: block;
+    color: white;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+}
+
+/* Change the link color to #111 (black) on hover */
+nav li a:hover {
+    background-color: #111;
+}
+
+
 a {
-  color: #00B7FF;
+    color: #00B7FF;
 }
