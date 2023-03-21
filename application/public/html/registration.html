@@ -28,16 +28,17 @@
         <h2>Create an account</h2>
         <form action="login.php">
             <label for="username">Username</label>
-            <input type="text" class="input-text" name="username" id="username" placeholder="Username">
+            <input type="text" class="input-text" name="username" id="username" placeholder="Username" required="true">
             <br>
             <label for="email">Email</label>
-            <input type="email" class="input-text" name="email" id="email" placeholder="Email">
+            <input type="email" class="input-text" name="email" id="email" placeholder="Email" required="true">
             <br>
             <label for="password">Password</label>
-            <input type="password" class="input-text" name="password" id="password" placeholder="Password"><br>
+            <input type="password" class="input-text" name="password" id="password" placeholder="Password"
+                required="true"><br>
             <label for="confirm-password">Confirm password</label>
             <input type="password" class="input-text" name="confirm-password" id="confirm-password"
-                placeholder="Password">
+                placeholder="Password" required="true">
             <br>
             <input type="checkbox" name="confirm-age" id="confirm-age" required="true">
             <label for="confirm-age">I am at least 13 years of age.</label>
