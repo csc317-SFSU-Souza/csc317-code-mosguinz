@@ -44,6 +44,11 @@ footer {
     background-color: #00B7FF;
     padding: 10px;
     text-align: center;
+    width: 100%;
+    margin: 0;
+    left: 0;
+    bottom: 0;
+    position: fixed;
 }
 
 a {
