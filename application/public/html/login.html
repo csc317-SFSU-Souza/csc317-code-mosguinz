@@ -26,12 +26,13 @@
 
     <main>
         <h2>Login</h2>
+        <p>Don't have an account with us yet? <a href="registration.html">Sign up</a>.</p>
         <form action="login.php">
-            <label for="username">Username</label>
-            <input type="text" name="username" id="username" placeholder="Username">
+            <!-- <label for="username">Username</label> -->
+            <input type="text" name="username" id="username" placeholder="Username" required="true">
             <br>
-            <label for="password">Password</label>
-            <input type="password" name="password" id="password" placeholder="Password">
+            <!-- <label for="password">Password</label> -->
+            <input type="password" name="password" id="password" placeholder="Password" required="true">
             <br>
             <input type="submit" value="Log in" onsubmit="">
         </form>
