@@ -38,6 +38,24 @@ nav li a:hover {
     background-color: #111;
 }
 
+input[type=text],
+input[type=password],
+input[type=email] {
+    padding: 12px 20px;
+    margin: 8px 0;
+    border: none;
+    border-bottom: 2px solid royalblue;
+    box-sizing: border-box;
+}
+
+input:focus {
+    border-width: 4px;
+}
+
+input:invalid {
+    border-color: red;
+}
+
 footer {
     display: block;
     background-color: #00B7FF;
