@@ -38,6 +38,14 @@ nav li a:hover {
     background-color: #111;
 }
 
+textarea {
+    padding: 12px 20px;
+    margin: 8px 0;
+    border: none;
+    border-bottom: 2px solid royalblue;
+    box-sizing: border-box;
+}
+
 .input-text {
     padding: 12px 20px;
     margin: 8px 0;
