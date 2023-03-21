@@ -5,12 +5,13 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../css/style.css">
     <title>Login</title>
 </head>
 
 <body>
     <header>
-        <h1>Login</h1>
+        <h1>TestTube</h1>
         <nav>
             <ul>
                 <li><a href="index.html">Home</a></li>
@@ -25,14 +26,16 @@
 
     <main>
         <h2>Login</h2>
+        <p>Don't have an account with us yet? <a href="registration.html">Sign up</a>.</p>
         <form action="login.php">
-            <label for="username">Username</label>
-            <input type="text" name="username" id="username" placeholder="Username">
+            <!-- <label for="username">Username</label> -->
+            <input type="text" class="input-text" name="username" id="username" placeholder="Username" required="true">
             <br>
-            <label for="password">Password</label>
-            <input type="password" name="password" id="password" placeholder="Password">
+            <!-- <label for="password">Password</label> -->
+            <input type="password" class="input-text" name="password" id="password" placeholder="Password"
+                required="true">
             <br>
-            <input type="submit" value="Log in" onsubmit="">
+            <input type="submit" class="action-button" value="Log in" onsubmit="">
         </form>
     </main>
 </body>

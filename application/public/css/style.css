@@ -1,8 +1,166 @@
-body {
-  padding: 50px;
-  font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+/* This font is Neue Haas Grotesk, a brother of Helvetica. */
+@import url("https://use.typekit.net/cbe6vvj.css");
+
+p,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+ul,
+table {
+    margin-top: .6em;
+    margin-bottom: 1.35em;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+ul,
+table {
+    margin-bottom: 0.65em;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    line-height: 1.5em;
+}
+
+h1 {
+    font-size: 1.5em;
+    font-weight: bold;
+    border-bottom: 1px solid #dddddd;
+    padding-bottom: .3em;
+}
+
+h2 {
+    font-size: 1.3em;
+    font-weight: bold;
+    padding-bottom: .1em;
+}
+
+h3 {
+    font-size: 1.1em;
+    font-weight: bold;
+}
+
+h4,
+h5,
+h6 {
+    font-size: 1em;
+    font-weight: bold;
 }
 
 a {
-  color: #00B7FF;
+    color: #155BDA;
+}
+
+body,
+input,
+textarea {
+    font-family: "neue-haas-grotesk-text", "Neue Haas Grotesk Text Pro", sans-serif;
+    font-style: normal;
+    font-weight: 400;
+}
+
+header {
+    padding: 10px;
+    color: white;
+    background: linear-gradient(90deg, rgba(9, 9, 121, 1) 6%, rgba(7, 74, 160, 1) 51%, rgba(2, 192, 231, 1) 100%);
+}
+
+nav ul {
+    background: blue;
+    list-style-type: none;
+    display: grid;
+    grid-auto-flow: column;
+    margin: 0;
+    padding: 0;
+    top: 0;
+    width: 100%;
+    justify-content: start;
+    align-items: center;
+    align-content: center;
+}
+
+nav li {
+    float: left;
+}
+
+nav li a {
+    display: block;
+    color: white;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+}
+
+nav li a:hover {
+    background-color: #111;
+}
+
+textarea {
+    padding: 12px 20px;
+    margin: 8px 0;
+    width: 300px;
+    border: none;
+    border-bottom: 2px solid royalblue;
+    box-sizing: border-box;
+}
+
+.input-text {
+    padding: 12px 20px;
+    margin: 8px 0;
+    border: none;
+    border-bottom: 2px solid royalblue;
+    box-sizing: border-box;
+}
+
+input:focus {
+    border-width: 4px;
+}
+
+input:invalid {
+    border-color: red;
+}
+
+.action-button {
+    background-color: royalblue;
+    border: none;
+    color: white;
+    padding: 16px 32px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    margin: 4px 2px;
+    cursor: pointer;
+}
+
+.action-button:hover {
+    background-color: rgb(44, 71, 153);
+    color: white;
+}
+
+footer {
+    display: block;
+    background-color: #00B7FF;
+    padding: 10px;
+    text-align: center;
+    width: 100%;
+    margin: 0;
+    left: 0;
+    bottom: 0;
+    position: fixed;
+}
+
+a {
+    color: #00B7FF;
 }
