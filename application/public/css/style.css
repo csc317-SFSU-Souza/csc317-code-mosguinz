@@ -63,7 +63,9 @@ a {
     color: #155BDA;
 }
 
-body {
+body,
+input,
+textarea {
     font-family: "neue-haas-grotesk-text", "Neue Haas Grotesk Text Pro", sans-serif;
     font-style: normal;
     font-weight: 400;
