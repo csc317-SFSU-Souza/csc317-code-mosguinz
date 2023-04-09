@@ -55,6 +55,12 @@ document.getElementById("username").addEventListener("input", (e) => {
     target.reportValidity();
 });
 
+document.getElementById("email").addEventListener("input", (e) => {
+    /** @type {HTMLInputElement} */
+    const target = e.target;
+    target.reportValidity();
+});
+
 document.getElementById("password").addEventListener("input", (e) => {
     /** @type {HTMLInputElement} */
     const target = e.target;
@@ -76,5 +82,22 @@ document.getElementById("password").addEventListener("input", (e) => {
 
     target.setCustomValidity(messages.join("\n"));
     target.reportValidity();
+});
+
+document.getElementById("confirm-password").addEventListener("input", (e) => {
+    /** @type {HTMLInputElement} */
+    const target = e.target;
+    const original = document.getElementById("password").value;
+    if (!validatePassword(original).isValid) {
+        target.setCustomValidity("Your chosen password is invalid.");
+        target.reportValidity();
+        return;
+    }
+    if (target.value !== original) {
+        target.setCustomValidity("Passwords must match.");
+        target.reportValidity();
+    } else {
+        target.setCustomValidity("");
+    }
 });
 
