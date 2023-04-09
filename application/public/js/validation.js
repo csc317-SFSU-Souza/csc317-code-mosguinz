@@ -4,7 +4,7 @@
 function validateUsername(username) {
     const beginsWithAZ = username.match(/^[a-z]/gi) !== null;
     const meetsLength = username.length >= 3;
-    const isAlphanumeric = username.match(/^[a-z0-9]+/gi) !== null;
+    const isAlphanumeric = username.match(/^[a-z0-9]+$/gi) !== null;
     return {
         valid: beginsWithAZ && meetsLength && isAlphanumeric,
         beginsWithAZ: beginsWithAZ,
