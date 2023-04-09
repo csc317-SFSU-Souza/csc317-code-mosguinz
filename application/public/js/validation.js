@@ -38,6 +38,43 @@ function validatePassword(s) {
 document.getElementById("username").addEventListener("input", (e) => {
     /** @type {HTMLInputElement} */
     const target = e.target;
-    console.log(validateUsername(target.value));
+    const { status } = validateUsername(target.value);
+    const messages = [];
+
+    if (!status.meetsLength) {
+        messages.push("Must be at least 3 characters in length.")
+    }
+    if (!status.beginsWithAZ) {
+        messages.push("Must start with an alphabet (A-Z).")
+    }
+    if (!status.isAlphanumeric) {
+        messages.push("Must be alphanumeric (A-Z and 0-9).")
+    }
+
+    target.setCustomValidity(messages.join("\n"));
+    target.reportValidity();
+});
+
+document.getElementById("password").addEventListener("input", (e) => {
+    /** @type {HTMLInputElement} */
+    const target = e.target;
+    const { status } = validatePassword(target.value);
+    const messages = [];
+
+    if (!status.meetsLength) {
+        messages.push("Must be 8 characters or longer.");
+    }
+    if (!status.containsUppercase) {
+        messages.push("Must contain at least one uppercase character.");
+    }
+    if (!status.containsDigit) {
+        messages.push("Must contain at least one digit.");
+    }
+    if (!status.containsSpecials) {
+        messages.push("Must contain at least one of the following characters: / * - + ! @ # $ ^ & ~ [ ].");
+    }
+
+    target.setCustomValidity(messages.join("\n"));
+    target.reportValidity();
 });
 
