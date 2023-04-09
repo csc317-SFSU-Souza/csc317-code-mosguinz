@@ -1,10 +1,11 @@
 /**
- * @param   {string}    username
+ * Validate username requirements.
+ * @param   {string}    s
  */
-function validateUsername(username) {
-    const beginsWithAZ = username.match(/^[a-z]/gi) !== null;
-    const meetsLength = username.length >= 3;
-    const isAlphanumeric = username.match(/^[a-z0-9]+$/gi) !== null;
+function validateUsername(s) {
+    const beginsWithAZ = s.match(/^[a-z]/gi) !== null;
+    const meetsLength = s.length >= 3;
+    const isAlphanumeric = s.match(/^[a-z0-9]+$/gi) !== null;
     return {
         isValid: beginsWithAZ && meetsLength && isAlphanumeric,
         status: {
@@ -16,6 +17,7 @@ function validateUsername(username) {
 }
 
 /**
+ * Validate password requirements.
  * @param    {string}    s
  */
 function validatePassword(s) {
