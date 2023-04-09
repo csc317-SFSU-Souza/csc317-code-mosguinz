@@ -6,10 +6,12 @@ function validateUsername(username) {
     const meetsLength = username.length >= 3;
     const isAlphanumeric = username.match(/^[a-z0-9]+$/gi) !== null;
     return {
-        valid: beginsWithAZ && meetsLength && isAlphanumeric,
-        beginsWithAZ: beginsWithAZ,
-        meetsLength: meetsLength,
-        isAlphanumeric: isAlphanumeric
+        isValid: beginsWithAZ && meetsLength && isAlphanumeric,
+        status: {
+            beginsWithAZ: beginsWithAZ,
+            meetsLength: meetsLength,
+            isAlphanumeric: isAlphanumeric
+        }
     };
 }
 
@@ -22,11 +24,13 @@ function validatePassword(s) {
     const containsDigit = s.match(/[0-9]/g) !== null;
     const containsSpecials = s.match(/[\/\*\-\+\!\@\#\$\^\&\~\[\]]/g) !== null;
     return {
-        valid: meetsLength && containsUppercase && containsDigit && containsSpecials,
-        meetsLength: meetsLength,
-        containsUppercase: containsUppercase,
-        containsDigit: containsDigit,
-        containsSpecials: containsSpecials
+        isValid: meetsLength && containsUppercase && containsDigit && containsSpecials,
+        status: {
+            meetsLength: meetsLength,
+            containsUppercase: containsUppercase,
+            containsDigit: containsDigit,
+            containsSpecials: containsSpecials
+        }
     };
 }
 
