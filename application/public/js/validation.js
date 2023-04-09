@@ -101,3 +101,10 @@ document.getElementById("confirm-password").addEventListener("input", (e) => {
     }
 });
 
+document.getElementById("registration-form").addEventListener("submit", (e) => {
+    /** @type {HTMLFormElement} */
+    const target = e.target;
+    if (target.reportValidity()) {
+        window.alert("Client-side validation passed. Registration form was submitted.");
+    }
+});
