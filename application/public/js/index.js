@@ -1,4 +1,6 @@
 /**
+ * Build card element. Contains image and title.
+ * Expects argument to be an item from the API.
  * @param   {{thumbnailUrl: string, title: string, url: string}}   data
  */
 function buildCard(data) {
@@ -23,9 +25,13 @@ function buildCard(data) {
             updateCardCount();
         }, 1300);
     });
+
     return cardDiv;
 }
 
+/**
+ * Update the card counter at the top of the page.
+ */
 function updateCardCount() {
     const count = document.getElementById("video-gallery").children.length;
     document.getElementById("video-count").replaceChildren(
@@ -34,6 +40,7 @@ function updateCardCount() {
 }
 
 /**
+ * Fetch thumbnails from dummy API.
  * @return {{thumbnailUrl: string, title: string, url: string}[]}
  */
 async function fetchVideos() {
@@ -45,7 +52,6 @@ async function loadGallery() {
     const items = await fetchVideos();
     const cards = items.map(buildCard);
     document.getElementById("video-gallery").append(...cards);
-    console.log(cards);
     updateCardCount();
 }
 
