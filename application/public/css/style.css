@@ -164,3 +164,29 @@ footer {
 a {
     color: #00B7FF;
 }
+
+.video-gallery {
+    display: grid;
+    width: auto;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    padding: 10px;
+}
+
+.video-card {
+    grid-area: auto;
+    padding: 10px;
+    object-fit: cover;
+    max-width: 200px;
+    display: grid;
+}
+
+p.video-title {
+    text-overflow: ellipsis;
+    overflow: hidden;
+}
+
+img.video-thumbnail {
+    height: 100%;
+    width: 100%;
+    max-height: 200px;
+}
