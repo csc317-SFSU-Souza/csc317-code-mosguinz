@@ -3,7 +3,7 @@
  */
 function buildCard(data) {
     let cardDiv = document.createElement("div");
-    cardDiv.setAttribute("class", "product-card");
+    cardDiv.setAttribute("class", "video-card");
 
     let imgTag = document.createElement("img");
     imgTag.setAttribute("class", "video-thumbnail");
