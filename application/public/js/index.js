@@ -23,9 +23,7 @@ function buildCard(data) {
 
 function updateCardCount() {
     const count = document.getElementById("video-gallery").children.length;
-    document.getElementById("video-count").appendChild(
-        document.createTextNode(`Videos: ${count}`)
-    );
+    document.getElementById("video-count").replaceChildren(`Videos: ${count}`);
 }
 
 /**
