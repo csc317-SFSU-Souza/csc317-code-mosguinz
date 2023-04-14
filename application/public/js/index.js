@@ -23,7 +23,9 @@ function buildCard(data) {
 
 function updateCardCount() {
     const count = document.getElementById("video-gallery").children.length;
-    document.getElementById("video-count").replaceChildren(`Videos: ${count}`);
+    document.getElementById("video-count").replaceChildren(
+        `Displaying ${count} video${count == 1 ? "" : "s"}`
+    );
 }
 
 /**
