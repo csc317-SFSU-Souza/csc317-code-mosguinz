@@ -17,6 +17,13 @@ function buildCard(data) {
     return cardDiv;
 }
 
+function updateCardCount() {
+    const count = document.getElementById("video-gallery").children.length;
+    document.getElementById("video-count").appendChild(
+        document.createTextNode(`Videos: ${count}`)
+    );
+}
+
 /**
  * @return {{thumbnailUrl: string, title: string, url: string}[]}
  */
@@ -29,6 +36,8 @@ async function loadGallery() {
     const items = await fetchVideos();
     const cards = items.map(buildCard);
     document.getElementById("video-gallery").append(...cards);
+    console.log(cards);
+    updateCardCount();
 }
 
 
