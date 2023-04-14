@@ -14,6 +14,10 @@ function buildCard(data) {
     titleTag.appendChild(document.createTextNode(data.title));
 
     cardDiv.append(imgTag, titleTag);
+    cardDiv.addEventListener("click", (e) => {
+        e.currentTarget.remove();
+        updateCardCount();
+    });
     return cardDiv;
 }
 
