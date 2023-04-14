@@ -15,8 +15,13 @@ function buildCard(data) {
 
     cardDiv.append(imgTag, titleTag);
     cardDiv.addEventListener("click", (e) => {
-        e.currentTarget.remove();
-        updateCardCount();
+        /** @type {HTMLDivElement} */
+        const div = e.currentTarget;
+        div.style.animation = "fade-out 1.5s forwards";
+        setTimeout(() => {
+            div.remove();
+            updateCardCount();
+        }, 1300);
     });
     return cardDiv;
 }

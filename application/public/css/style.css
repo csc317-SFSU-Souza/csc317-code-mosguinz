@@ -180,6 +180,16 @@ a {
     display: grid;
 }
 
+@keyframes fade-out {
+    from {
+        opacity: 100%;
+    }
+
+    to {
+        opacity: 0%;
+    }
+}
+
 p.video-title {
     text-overflow: ellipsis;
     overflow: hidden;
