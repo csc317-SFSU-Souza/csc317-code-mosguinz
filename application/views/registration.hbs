@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../css/style.css">
+    <script defer src="../js/validation.js"></script>
+    <title>Registration</title>
+</head>
+
+<body>
+    <header>
+        <h1>TestTube</h1>
+        <nav>
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="login.html">Login</a></li>
+                <li><a href="postvideo.html">Post video</a></li>
+                <li><a href="profile.html">Profile</a></li>
+                <li><a href="registration.html">Registration</a></li>
+                <li><a href="viewpost.html">View post</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <h2>Create an account</h2>
+        <form id="registration-form">
+            <label for="username">Username</label>
+            <input type="text" class="input-text" name="username" id="username" placeholder="Username" required="true">
+            <br>
+            <label for="email">Email</label>
+            <input type="email" class="input-text" name="email" id="email" placeholder="Email" required="true">
+            <br>
+            <label for="password">Password</label>
+            <input type="password" class="input-text" name="password" id="password" placeholder="Password"
+                required="true"><br>
+            <label for="confirm-password">Confirm password</label>
+            <input type="password" class="input-text" name="confirm-password" id="confirm-password"
+                placeholder="Password" required="true">
+            <br>
+            <input type="checkbox" name="confirm-age" id="confirm-age" required="true">
+            <label for="confirm-age">I am at least 13 years of age.</label>
+            <br>
+            <input type="checkbox" name="confirm-tos" id="confirm-tos" required="true">
+            <label for="confirm-tos">I agree to the <a href="">TOS</a> and <a href="">Privacy Policy</a>.</label>
+            <br><br>
+            <input type="submit" class="action-button" value="Sign up" onsubmit="">
+        </form>
+    </main>
+</body>
+
+</html>

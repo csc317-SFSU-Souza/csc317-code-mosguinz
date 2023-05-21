@@ -6,8 +6,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="../css/style.css">
-    <script defer src="../js/index.js"></script>
-    <title>Welcome</title>
+    <title>Login</title>
 </head>
 
 <body>
@@ -25,14 +24,21 @@
         </nav>
     </header>
 
-    <main id="content-area">
-        <h1>Video gallery</h1>
-        <h2 id="video-count"></h2>
-        <p>Click one to enter a time sink!</p>
-        <div id="video-gallery" class="video-gallery"></div>
+    <main>
+        <h2>Login</h2>
+        <p>Don't have an account with us yet? <a href="registration.html">Sign up</a>.</p>
+        <form action="login.php">
+            <!-- <label for="username">Username</label> -->
+            <input type="text" class="input-text" name="username" id="username" placeholder="Username" required="true">
+            <br>
+            <!-- <label for="password">Password</label> -->
+            <input type="password" class="input-text" name="password" id="password" placeholder="Password"
+                required="true">
+            <br>
+            <input type="submit" class="action-button" value="Log in" onsubmit="">
+        </form>
     </main>
-
-    <footer class="footer-bottom">Mos Kullathon &copy; 2023</footer>
 </body>
+
 
 </html>
