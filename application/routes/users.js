@@ -33,6 +33,14 @@ router.post("/login", async (req, res, next) => {
 });
 
 
+router.post("/logout", (req, res, next) => {
+    req.session.destroy((err) => {
+        if (err) { next(err); }
+        return res.redirect("/");
+    });
+});
+
+
 router.post("/register", async (req, res, next) => {
     const { username, email, password } = req.body;
 
