@@ -1,5 +1,6 @@
 "use strict";
 const mysql = require("mysql2/promise");
+require("dotenv").config();
 
 function displayWarningMessage(warning) {
     switch (warning.Code) {
@@ -14,15 +15,15 @@ function displayWarningMessage(warning) {
 
 async function getConnection() {
     return await mysql.createConnection({
-        host: "localhost",
-        user: "root",
-        password: "317",
+        host: process.env.DB_HOST,
+        user: process.env.DB_USER,
+        password: process.env.DB_PASSWORD,
     });
 }
 
 async function makeDatabase(connection) {
     const [result, _] = await connection.query(
-        "CREATE DATABASE IF NOT EXISTS csc317db;"
+        `CREATE DATABASE IF NOT EXISTS ${process.env.DB_NAME};`
     );
     if (result && result.warningStatus > 0) {
         const [warningResult, _] = await connection.query("SHOW WARNINGS");
@@ -35,7 +36,7 @@ async function makeDatabase(connection) {
 async function makeUsersTable(connection) {
     const [result, _] = await connection.query(
         // Users Table SQL Goes here
-        `CREATE TABLE IF NOT EXISTS csc317db.users (
+        `CREATE TABLE IF NOT EXISTS ${process.env.DB_NAME}.users (
         id INT UNSIGNED NOT NULL AUTO_INCREMENT,
         email VARCHAR(128) NOT NULL,
         password VARCHAR(255) NOT NULL,
@@ -58,7 +59,7 @@ async function makeUsersTable(connection) {
 async function makePostsTable(connection) {
     const [result, _] = await connection.query(
         // Posts Table SQL Goes here
-        `CREATE TABLE IF NOT EXISTS csc317db.posts (
+        `CREATE TABLE IF NOT EXISTS ${process.env.DB_NAME}.posts (
         id INT UNSIGNED NOT NULL AUTO_INCREMENT,
         title VARCHAR(256) NOT NULL,
         description MEDIUMTEXT NOT NULL,
@@ -72,7 +73,7 @@ async function makePostsTable(connection) {
         INDEX fk_author_idx (fk_author ASC) VISIBLE,
         CONSTRAINT fk_postAuthor
             FOREIGN KEY (fk_author)
-            REFERENCES csc317db.users (id)
+            REFERENCES ${process.env.DB_NAME}.users (id)
             ON DELETE NO ACTION
             ON UPDATE NO ACTION)
         ENGINE = InnoDB`
@@ -88,7 +89,7 @@ async function makePostsTable(connection) {
 async function makeCommentsTable(connection) {
     const [result, _] = await connection.query(
         // Comments Table SQL Goes here
-        `CREATE TABLE IF NOT EXISTS csc317db.comments (
+        `CREATE TABLE IF NOT EXISTS ${process.env.DB_NAME}.comments (
         id INT UNSIGNED NOT NULL AUTO_INCREMENT,
         content TEXT NOT NULL,
         createdAt DATETIME NOT NULL DEFAULT current_timestamp,
@@ -101,12 +102,12 @@ async function makeCommentsTable(connection) {
         INDEX fk_post_idx (fk_post ASC) VISIBLE,
         CONSTRAINT fk_commentAuthor
             FOREIGN KEY (fk_author)
-            REFERENCES csc317db.users (id)
+            REFERENCES ${process.env.DB_NAME}.users (id)
             ON DELETE NO ACTION
             ON UPDATE NO ACTION,
         CONSTRAINT fk_parentPost
             FOREIGN KEY (fk_post)
-            REFERENCES csc317db.posts (id)
+            REFERENCES ${process.env.DB_NAME}.posts (id)
             ON DELETE NO ACTION
             ON UPDATE NO ACTION)
         ENGINE = InnoDB`
@@ -124,7 +125,7 @@ async function makeCommentsTable(connection) {
     try {
         connection = await getConnection();
         await makeDatabase(connection); // make DB
-        await connection.query("USE csc317db"); // set new DB to the current DB
+        await connection.query(`USE ${process.env.DB_NAME}`); // set new DB to the current DB
         await makeUsersTable(connection); // try to make user table
         await makePostsTable(connection); // try to make posts table
         await makeCommentsTable(connection); // try to make comments table
