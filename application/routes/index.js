@@ -3,27 +3,41 @@ var router = express.Router();
 
 /* GET home page. */
 router.get('/', function (req, res, next) {
-    res.render('index', { title: 'CSC 317 App', name: "Mos Kullathon" });
+    res.render('index', {
+        title: "TestTube",
+        js: ["index.js"]
+    });
 });
 
 router.get("/login", (req, res) => {
-    res.render("login");
+    res.render("login", {
+        title: "Login"
+    });
 });
 
 router.get("/registration", (req, res) => {
-    res.render("registration");
+    res.render("registration", {
+        title: "Registration",
+        js: ["validation.js"]
+    });
 });
 
 router.get("/postvideo", (req, res) => {
-    res.render("postvideo");
+    res.render("postvideo", {
+        title: "Post video"
+    });
 });
 
 router.get("/profile", (req, res) => {
-    res.render("profile");
+    res.render("profile", {
+        title: "View profile"
+    });
 });
 
 router.get("/viewpost/:id", (req, res) => {
-    res.render("viewpost");
+    res.render("viewpost", {
+        title: "View post"
+    });
 });
 
 module.exports = router;
