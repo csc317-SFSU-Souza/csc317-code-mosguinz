@@ -8,6 +8,7 @@ const cookieParser = require("cookie-parser");
 const logger = require("morgan");
 const handlebars = require("express-handlebars");
 const sessions = require("express-session");
+const flash = require("express-flash");
 const mySqlStore = require("express-mysql-session")(sessions);
 const indexRouter = require("./routes/index");
 const usersRouter = require("./routes/users");
@@ -51,6 +52,7 @@ app.use(sessions({
         secure: false
     }
 }));
+app.use(flash());
 
 app.use((req, res, next) => {
     // console.log(req.session);
