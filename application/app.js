@@ -38,6 +38,8 @@ app.use(cookieParser("123"));
 
 app.use(favicon(__dirname + '/public/favicon.ico'));
 app.use("/public", express.static(path.join(__dirname, "public")));
+app.use("/bootstrap", express.static(path.join(__dirname, "node_modules", "bootstrap")));
+
 
 app.use(sessions({
     secret: "123",
