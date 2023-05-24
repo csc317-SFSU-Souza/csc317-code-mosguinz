@@ -1,6 +1,8 @@
 var express = require('express');
 var router = express.Router();
 
+const { isLoggedIn } = require("../middleware/auth");
+
 /* GET home page. */
 router.get('/', function (req, res, next) {
     res.render('index', {
@@ -28,7 +30,7 @@ router.get("/postvideo", (req, res) => {
     });
 });
 
-router.get("/profile", (req, res) => {
+router.get("/profile", isLoggedIn, (req, res) => {
     res.render("profile", {
         title: "View profile"
     });
