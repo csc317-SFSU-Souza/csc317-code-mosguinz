@@ -10,7 +10,7 @@ module.exports = {
             return next();
         }
         req.flash("error", "You must be logged in.");
-        req.session.save(() => {
+        req.session.save((err) => {
             if (err) { next(err); }
             res.redirect("/login");
         });
