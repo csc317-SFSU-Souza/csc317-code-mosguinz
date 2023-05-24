@@ -1,6 +1,7 @@
 var express = require("express");
 var router = express.Router();
 var multer = require("multer");
+const { makeThumbnail } = require("../middleware/posts");
 
 const storage = multer.diskStorage({
     destination: (req, file, cb) => {
@@ -16,7 +17,7 @@ const storage = multer.diskStorage({
 
 const upload = multer({ storage: storage });
 
-router.post("/create", upload.single("video-file"), (req, res, next) => {
+router.post("/create", upload.single("videoFile"), makeThumbnail, (req, res, next) => {
     console.log(req.file);
     console.log(req.body);
     res.end();
