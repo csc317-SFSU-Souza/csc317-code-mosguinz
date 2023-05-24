@@ -5,6 +5,7 @@
 // var ffmpeg = require("ffmpeg-static");
 
 var exec = require("child_process").exec;
+const Post = require("../models/post");
 
 module.exports = {
 
@@ -23,6 +24,31 @@ module.exports = {
             next();
         } catch (err) {
             next(err);
+        }
+    },
+
+    getPostById: async function (req, res, next) {
+        try {
+            const post = await Post.getPostById(req.params.id);
+            if (!post) {
+                req.flash("error", "Could not find post");
+                return res.redirect(`/`);
+            } else {
+                res.locals.currentPost = post;
+                next();
+            }
+        } catch (error) {
+            next(error);
+        }
+    },
+
+    getCommentsForPostById: async function (req, res, next) {
+        try {
+            rows = await Post.getComments(req.params.id);
+            res.locals.currentPost.comments = rows;
+            next();
+        } catch (error) {
+            next(error);
         }
     }
 

@@ -3,20 +3,20 @@
 
 <body>
     {{>header}}
-
+    {{log this}}
     <main>
         <div class="video-title">
-            <h2>Video title</h2>
+            <h2>{{currentPost.title}}</h2>
         </div>
         <div class="video-author">
-            <p>Author name</p>
+            <p>{{currentPost.username}}</p>
         </div>
         <div class="video-publish-timestamp">
-            <p>Post date</p>
+            <p>{{currentPost.createdAt}}</p>
         </div>
         <div class="video-player">
             <video width="600" height="400" controls>
-                <source src="video" type="video" id="">
+                <source src="/{{currentPost.video}}" type="video/mp4" id="">
             </video>
         </div>
         <div class="video-comments">

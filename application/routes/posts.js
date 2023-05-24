@@ -4,7 +4,7 @@ var multer = require("multer");
 var db = require("../conf/database");
 
 const { isLoggedIn } = require("../middleware/auth");
-const { makeThumbnail } = require("../middleware/posts");
+const { makeThumbnail, getCommentsForPostById, getPostById } = require("../middleware/posts");
 
 const Post = require("../models/post");
 
@@ -40,5 +40,6 @@ router.post("/create", isLoggedIn, upload.single("videoFile"), makeThumbnail,
             next(new Error("Your post could not be created. Please try again."));
         }
     });
+
 
 module.exports = router;
