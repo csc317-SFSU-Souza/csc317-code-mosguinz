@@ -1,7 +1,12 @@
 var express = require("express");
 var router = express.Router();
 var multer = require("multer");
+var db = require("../conf/database");
+
+const { isLoggedIn } = require("../middleware/auth");
 const { makeThumbnail } = require("../middleware/posts");
+
+const Post = require("../models/post");
 
 const storage = multer.diskStorage({
     destination: (req, file, cb) => {
@@ -17,10 +22,23 @@ const storage = multer.diskStorage({
 
 const upload = multer({ storage: storage });
 
-router.post("/create", upload.single("videoFile"), makeThumbnail, (req, res, next) => {
-    console.log(req.file);
-    console.log(req.body);
-    res.end();
-});
+router.post("/create", isLoggedIn, upload.single("videoFile"), makeThumbnail,
+    async (req, res, next) => {
+        const { path, thumbnail } = req.file;
+        const { videoTitle, videoDescription } = req.body;
+        const { userId } = req.session.user;
+
+        console.log(videoTitle, videoDescription, path, thumbnail, userId)
+        try {
+            const result = await Post.upload(videoTitle, videoDescription, path, thumbnail, userId);
+            req.flash("error", "Your post was uploaded");
+            return req.session.save((err) => {
+                if (err) { next(err); }
+                return res.redirect("/");
+            });
+        } catch (err) {
+            next(new Error("Your post could not be created. Please try again."));
+        }
+    });
 
 module.exports = router;
