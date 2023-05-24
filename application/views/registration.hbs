@@ -6,7 +6,7 @@
 
     <main>
         <h2>Create an account</h2>
-        <form id="registration-form">
+        <form id="registration-form" action="/users/register" method="POST" enctype="application/x-www-form-urlencoded">
             <label for="username">Username</label>
             <input type="text" class="input-text" name="username" id="username" placeholder="Username" required="true">
             <br>
@@ -17,13 +17,13 @@
             <input type="password" class="input-text" name="password" id="password" placeholder="Password"
                 required="true"><br>
             <label for="confirm-password">Confirm password</label>
-            <input type="password" class="input-text" name="confirm-password" id="confirm-password"
+            <input type="password" class="input-text" name="confirmPassword" id="confirm-password"
                 placeholder="Password" required="true">
             <br>
-            <input type="checkbox" name="confirm-age" id="confirm-age" required="true">
+            <input type="checkbox" name="confirmAge" id="confirm-age" required="true">
             <label for="confirm-age">I am at least 13 years of age.</label>
             <br>
-            <input type="checkbox" name="confirm-tos" id="confirm-tos" required="true">
+            <input type="checkbox" name="confirmTos" id="confirm-tos" required="true">
             <label for="confirm-tos">I agree to the <a href="">TOS</a> and <a href="">Privacy Policy</a>.</label>
             <br><br>
             <input type="submit" class="action-button" value="Sign up" onsubmit="">

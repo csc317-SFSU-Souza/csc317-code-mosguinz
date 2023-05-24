@@ -1,6 +1,6 @@
 <header>
     <h1>TestTube</h1>
-    <nav>
+    {{!-- <nav>
         <ul>
             <li><a href="/">Home</a></li>
             <li><a href="/login">Login</a></li>
@@ -9,6 +9,51 @@
             <li><a href="/registration">Registration</a></li>
             <li><a href="/viewpost">View post</a></li>
         </ul>
+    </nav> --}}
+
+    <nav data-bs-theme="dark" class="navbar navbar-expand-lg bg-body-tertiary">
+        <div class="container-fluid">
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+                data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
+                aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+
+                <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                    <li class="nav-item">
+                        <a class="nav-link active" aria-current="page" href="/">Home</a>
+                    </li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown"
+                            aria-expanded="false">
+                            Login
+                        </a>
+                        <ul class="dropdown-menu">
+                            <li><a class="dropdown-item" href="/profile">Profile</a></li>
+                            <li><a class="dropdown-item" href="/registration">Sign up</a></li>
+                            <li><a class="dropdown-item" href="/viewpost">View post</a></li>
+                            <li><a class="dropdown-item" href="/postvideo">Post video</a></li>
+                            <li>
+                                <hr class="dropdown-divider">
+                            </li>
+                            <li><a class="dropdown-item" href="#">Logout</a></li>
+                        </ul>
+                    </li>
+                </ul>
+
+                <form class="d-flex" role="search">
+                    <div class="input-group mb-2">
+                        <input type="text" class="form-control" placeholder="Search TestTube"
+                            aria-label="Recipient's username" aria-describedby="button-addon2">
+                        <button class="btn btn-outline-light" type="button" id="button-addon2">🔍</button>
+                    </div>
+                </form>
+
+            </div>
+        </div>
     </nav>
+
+    {{>toast this}}
 
 </header>
