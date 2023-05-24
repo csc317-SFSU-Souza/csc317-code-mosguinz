@@ -36,6 +36,13 @@ router.get("/profile", isLoggedIn, (req, res) => {
     });
 });
 
+router.get("/logout", (req, res, next) => {
+    req.session.destroy((err) => {
+        if (err) { next(err); }
+        return res.redirect("/");
+    });
+});
+
 router.get("/viewpost/:id", (req, res) => {
     res.render("viewpost", {
         title: "View post"
