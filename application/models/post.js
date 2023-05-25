@@ -37,7 +37,11 @@ class Post {
 
     static async getRecentPosts(limit = 10) {
         const [rows, _] = await db.execute(
-            `SELECT * FROM posts ORDER BY createdAt DESC LIMIT ?;`,
+            `SELECT p.*, u.username
+            FROM posts p
+            JOIN users u
+            ON p.fk_author=u.id
+            ORDER BY p.createdAt DESC LIMIT ?;`,
             [`${limit}`]
         );
         return rows;
