@@ -13,7 +13,7 @@ router.post("/create", isLoggedIn, async (req, res, next) => {
     const { postId, content } = req.body;
 
     try {
-        const resObject = await Comment.postComment(comment, postId, userId);
+        const resObject = await Comment.postComment(content, postId, userId);
         if (resObject && resObject.affectedRows == 1) {
             return res.status(201).json({
                 commentId: resObject.insertId,
@@ -29,3 +29,4 @@ router.post("/create", isLoggedIn, async (req, res, next) => {
     }
 });
 
+module.exports = router;
