@@ -8,7 +8,7 @@ document.getElementById("comment-submit-button").addEventListener("click", async
     /** @type {HTMLInputElement} */
     const textbox = document.getElementById("comment-textarea");
     const content = textbox.value;
-    // if (!value) { return; }
+    if (!content) { return; }
 
     const postId = ev.currentTarget?.dataset?.postid;
     if (!postId) {
