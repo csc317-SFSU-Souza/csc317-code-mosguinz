@@ -12,12 +12,16 @@
         <div class="user-email">
             <p>{{user.email}}</p>
         </div>
-        <div class="user-posts">
-            <h2>Posts</h2>
-            <ul>
-                <li><a href="viewpost.html">A test video</a></li>
-            </ul>
+
+        <h2>Posts</h2>
+        <div id="users-post" class="container-fluid" id="video-grid">
+            <div class="row row-cols-1 g-4">
+                {{#each posts}}
+                {{>videocard-form this}}
+                {{/each}}
+            </div>
         </div>
+
     </main>
 </body>
 
