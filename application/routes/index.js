@@ -49,6 +49,7 @@ router.get("/viewpost/:id(\\d+)", getPostById, getCommentsForPostById, function 
     console.log(req.body);
     res.render("viewpost", {
         title: `View Post ${req.params.id}`,
+        js: ["viewpost.js"]
     });
 });
 
