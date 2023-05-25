@@ -42,11 +42,13 @@
                     </li>
                 </ul>
 
-                <form class="d-flex" role="search">
+                <form class="d-flex" action="/posts/search" method="GET" enctype="application/x-www-form-urlencoded"
+                    role="search">
                     <div class="input-group mb-2">
-                        <input type="text" class="form-control" placeholder="Search TestTube"
-                            aria-label="Recipient's username" aria-describedby="button-addon2">
-                        <button class="btn btn-outline-light" type="button" id="button-addon2">🔍</button>
+                        <input type="text" class="form-control" name="searchQuery" placeholder="Search TestTube"
+                            aria-describedby="search-button">
+                        <button class="btn btn-outline-light" type="submit" id="search-button"
+                            >🔍</button>
                     </div>
                 </form>
 
