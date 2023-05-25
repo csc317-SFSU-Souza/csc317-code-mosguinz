@@ -5,25 +5,36 @@
     {{>header}}
     {{log this}}
     <main>
-        <div class="video-title">
-            <h2>{{currentPost.title}}</h2>
-        </div>
-        <div class="video-author">
-            <p>{{currentPost.username}}</p>
-        </div>
-        <div class="video-publish-timestamp">
-            <p>{{currentPost.createdAt}}</p>
-        </div>
-        <div class="video-player">
-            <video width="600" height="400" controls>
-                <source src="/{{currentPost.video}}" type="video/mp4" id="">
-            </video>
-        </div>
-        <div class="video-comments">
-            <h2>Comments</h2>
-            <ul>
-                <li><b>Test commenter</b> amogus</li>
-            </ul>
+        <div class="container-sm">
+            <div class="video-title">
+                <h2>{{currentPost.title}}</h2>
+            </div>
+            <div class="video-author">
+                <p>{{currentPost.username}}</p>
+            </div>
+            <div class="video-publish-timestamp">
+                <p>{{currentPost.createdAt}}</p>
+            </div>
+            <div class="video-player">
+                <video width="600" height="400" controls>
+                    <source src="/{{currentPost.video}}" type="video/mp4" id="">
+                </video>
+            </div>
+            <div class="video-comments">
+                <h2>Comments</h2>
+                <form>
+                    <div class="input-group mb-3">
+                        <input type="text" class="form-control" placeholder="Commeting as {{user.username}}">
+                        <button class="btn btn-outline-primary" type="button" id="button-addon2">Comment</button>
+                    </div>
+                </form>
+
+                <ul>
+                    {{#each currentPost.comments}}
+                    <li><b>{{this.username}}</b> {{this.content}}</li>
+                    {{/each}}
+                </ul>
+            </div>
         </div>
 
     </main>
