@@ -24,7 +24,32 @@ app.engine(
         partialsDir: path.join(__dirname, "views/partials"), // where to look for partials
         extname: ".hbs", //expected file extension for handlebars files
         defaultLayout: "layout", //default layout for app, general template for all pages in app
-        helpers: {}, //adding new helpers to handlebars for extra functionality
+        helpers: {
+            /**
+             * Checks if an object is a non-empty object
+             * @param   {Object}    obj
+             * @returns {boolean}
+             */
+            nonEmpty: (obj) => {
+                return (
+                    obj
+                    && obj.constructor === Object
+                    && Object.keys(obj.length) > 0
+                );
+            },
+            /**
+             * Format a valid date representation. Defaults to full date
+             * and time format.
+             * @param   {any}   dt
+             * @param   {Intl.DateTimeFormatOptions?}   options
+             */
+            formatDate: (dt, options = undefined) => {
+                return new Date(dt).toLocaleDateString(undefined, options || {
+                    dateStyle: "long",
+                    timeStyle: "medium"
+                });
+            }
+        }
     })
 );
 
