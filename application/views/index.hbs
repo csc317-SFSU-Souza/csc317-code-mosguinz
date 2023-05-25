@@ -3,12 +3,23 @@
 
 <body>
     {{>header}}
+    {{log this}}
 
-    <main id="content-area">
+    <main id="content-area" class="container-fluid">
         <h1>Video gallery</h1>
         <h2 id="video-count"></h2>
         <p>Click one to enter a time sink!</p>
+
+        <div class="container-fluid" id="video-grid">
+            <div class="row row-cols-1 row-cols-md-auto g-4">
+                {{#each posts}}
+                {{>videocard this}}
+                {{/each}}
+            </div>
+        </div>
+
         <div id="video-gallery" class="video-gallery"></div>
+
     </main>
 
 </body>
