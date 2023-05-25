@@ -27,6 +27,14 @@ class Post {
         return rows;
     }
 
+    static async getRecentPosts(limit = 10) {
+        const [rows, _] = await db.execute(
+            `SELECT * FROM posts ORDER BY createdAt DESC LIMIT ?;`,
+            [`${limit}`]
+        );
+        return rows;
+    }
+
 }
 
 module.exports = Post;

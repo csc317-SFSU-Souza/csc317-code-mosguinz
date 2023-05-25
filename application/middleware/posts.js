@@ -50,6 +50,16 @@ module.exports = {
         } catch (error) {
             next(error);
         }
+    },
+
+    getRecentPosts: async function (req, res, next) {
+        try {
+            const posts = await Post.getRecentPosts(10);
+            res.locals.posts = posts;
+            next();
+        } catch (err) {
+            next(err);
+        }
     }
 
 }

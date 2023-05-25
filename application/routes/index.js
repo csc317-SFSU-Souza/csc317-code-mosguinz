@@ -2,10 +2,10 @@ var express = require('express');
 var router = express.Router();
 
 const { isLoggedIn } = require("../middleware/auth");
-const { getCommentsForPostById, getPostById } = require("../middleware/posts");
+const { getCommentsForPostById, getPostById, getRecentPosts } = require("../middleware/posts");
 
 /* GET home page. */
-router.get('/', function (req, res, next) {
+router.get('/', getRecentPosts, async (req, res, next) => {
     res.render('index', {
         title: "TestTube",
         js: ["index.js"]
