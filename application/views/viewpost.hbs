@@ -22,12 +22,12 @@
             </div>
             <div class="video-comments">
                 <h2>Comments</h2>
-                <form>
-                    <div class="input-group mb-3">
-                        <input type="text" class="form-control" placeholder="Commeting as {{user.username}}">
-                        <button class="btn btn-outline-primary" type="button" id="button-addon2">Comment</button>
-                    </div>
-                </form>
+
+                <div class="input-group mb-3" id="comment-box">
+                    <input type="text" class="form-control" id="comment-textarea"
+                        placeholder="Commenting as {{user.username}}">
+                    <button class="btn btn-outline-primary" type="button" id="comment-submit-button">Comment</button>
+                </div>
 
                 <ul>
                     {{#each currentPost.comments}}
