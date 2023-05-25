@@ -4,7 +4,7 @@ var multer = require("multer");
 var db = require("../conf/database");
 
 const { isLoggedIn } = require("../middleware/auth");
-const { makeThumbnail, getCommentsForPostById, getPostById } = require("../middleware/posts");
+const { makeThumbnail, getCommentsForPostById, getPostById, getRecentPosts } = require("../middleware/posts");
 
 const Post = require("../models/post");
 
@@ -40,6 +40,23 @@ router.post("/create", isLoggedIn, upload.single("videoFile"), makeThumbnail,
             next(new Error("Your post could not be created. Please try again."));
         }
     });
+
+router.get("/search", async (req, res, next) => {
+    const { searchQuery } = req.query;
+    console.log(req.query);
+    try {
+        let results = await Post.search(searchQuery);
+        console.log(results)
+        if (results && results.length) {
+            res.locals.posts = results;
+        } else {
+            res.locals.posts = await Post.getRecentPosts();
+        }
+        res.render("index");
+    } catch (err) {
+        // next(err);
+    }
+});
 
 
 module.exports = router;

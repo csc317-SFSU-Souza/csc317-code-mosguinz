@@ -47,6 +47,19 @@ class Post {
         return rows;
     }
 
+    static async search(query) {
+        const [rows, _] = await db.execute(
+            `SELECT p.*, u.username,
+            concat_ws(" ", p.title, p.description) AS haystack
+            FROM posts p
+            JOIN users u
+            ON p.fk_author=u.id
+            HAVING haystack like ?`,
+            [`%${query}%`]
+        );
+        return rows;
+    }
+
 }
 
 module.exports = Post;
