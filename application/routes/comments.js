@@ -4,6 +4,10 @@ var { isLoggedIn } = require("../middleware/auth");
 
 const Comment = require("../models/comment");
 
+/**
+ * Create a comment.
+ * Expects exactly two values in the request body: `postId` and `content`.
+ */
 router.post("/create", isLoggedIn, async (req, res, next) => {
     const { userId, username } = req.session.user;
     const { postId, content } = req.body;
@@ -23,7 +27,5 @@ router.post("/create", isLoggedIn, async (req, res, next) => {
     } catch (err) {
         return next(err);
     }
-
-
 });
 
