@@ -2,7 +2,7 @@ var express = require('express');
 var router = express.Router();
 
 const { isLoggedIn } = require("../middleware/auth");
-const { getCommentsForPostById, getPostById, getRecentPosts } = require("../middleware/posts");
+const { getCommentsForPostById, getPostById, getRecentPosts, getPostsByUser } = require("../middleware/posts");
 
 /* GET home page. */
 router.get('/', getRecentPosts, async (req, res, next) => {
@@ -31,7 +31,7 @@ router.get("/postvideo", (req, res) => {
     });
 });
 
-router.get("/profile", isLoggedIn, (req, res) => {
+router.get("/profile", isLoggedIn, getPostsByUser, (req, res, next) => {
     res.render("profile", {
         title: "View profile"
     });

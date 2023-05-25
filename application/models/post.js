@@ -18,6 +18,14 @@ class Post {
         return rows[0];
     }
 
+    static async getPostsByUser(userId) {
+        const [rows, _] = await db.execute(
+            `SELECT * FROM posts WHERE fk_author=? ORDER BY createdAt DESC;`,
+            [userId]
+        );
+        return rows;
+    }
+
     static async getComments(postId) {
         const [rows, _] = await db.execute(
             `SELECT u.username, c.content, c.createdAt

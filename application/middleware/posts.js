@@ -60,6 +60,16 @@ module.exports = {
         } catch (err) {
             next(err);
         }
+    },
+
+    getPostsByUser: async function (req, res, next) {
+        try {
+            const posts = await Post.getPostsByUser(res.locals.user.userId);
+            res.locals.posts = posts;
+            next();
+        } catch (err) {
+            next(err);
+        }
     }
 
 }
