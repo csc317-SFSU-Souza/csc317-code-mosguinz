@@ -4,29 +4,44 @@
 <body>
     {{>header}}
 
-    <main>
+    <main class="container-sm p-4">
         <h2>Create an account</h2>
-        <form id="registration-form" action="/users/register" method="POST" enctype="application/x-www-form-urlencoded">
-            <label for="username">Username</label>
-            <input type="text" class="input-text" name="username" id="username" placeholder="Username" required="true">
-            <br>
-            <label for="email">Email</label>
-            <input type="email" class="input-text" name="email" id="email" placeholder="Email" required="true">
-            <br>
-            <label for="password">Password</label>
-            <input type="password" class="input-text" name="password" id="password" placeholder="Password"
-                required="true"><br>
-            <label for="confirm-password">Confirm password</label>
-            <input type="password" class="input-text" name="confirmPassword" id="confirm-password"
-                placeholder="Password" required="true">
-            <br>
-            <input type="checkbox" name="confirmAge" id="confirm-age" required="true">
-            <label for="confirm-age">I am at least 13 years of age.</label>
-            <br>
-            <input type="checkbox" name="confirmTos" id="confirm-tos" required="true">
-            <label for="confirm-tos">I agree to the <a href="">TOS</a> and <a href="">Privacy Policy</a>.</label>
-            <br><br>
-            <input type="submit" class="action-button" value="Sign up" onsubmit="">
+
+        <form class="row g-3" id="registration-form" action="/users/register" method="POST"
+            enctype="application/x-www-form-urlencoded">
+
+            <div class="col-md-6">
+                <label for="username" class="form-label">Username</label>
+                <input type="text" class="form-control" name="username" id="username" placeholder="Username"
+                    required="true">
+            </div>
+            <div class="col-md-6">
+                <label for="email" class="form-label">Email</label>
+                <input type="email" class="form-control" name="email" id="email" placeholder="Email" required="true">
+            </div>
+            <div class="col-12">
+                <label for="password" class="form-label">Password</label>
+                <input type="password" class="form-control" name="password" id="password" placeholder="Password"
+                    required="true">
+            </div>
+            <div class="col-12">
+                <label for="confirm-password" class="form-label">Confirm password</label>
+                <input type="password" class="form-control" name="confirmPassword" id="confirm-password"
+                    placeholder="Password" required="true">
+            </div>
+            <div class="col-12">
+                <div class="form-check">
+                    <input class="form-check-input" type="checkbox" name="confirmAge" id="confirm-age" required="true">
+                    <label class="form-check-label" for="confirm-age">I am at least 13 years of age.</label>
+                    <br>
+                    <input class="form-check-input" type="checkbox" name="confirmTos" id="confirm-tos" required="true">
+                    <label class="form-check-label" for="confirm-tos">I agree to the <a href="">TOS</a> and <a
+                            href="">Privacy Policy</a>.</label>
+                </div>
+            </div>
+            <div class="col-12">
+                <button type="submit" class="btn btn-primary" onsubmit="">Sign up</button>
+            </div>
         </form>
     </main>
 </body>

@@ -4,19 +4,27 @@
 <body>
     {{>header}}
 
-    <main>
+    <main class="container-sm p-4">
         <div class="user-displayname">
-            <h2>{{user.username}}</h2>
+            <h2>Welcome, {{user.username}}</h2>
         </div>
         <div class="user-email">
             <p>{{user.email}}</p>
         </div>
-        <div class="user-posts">
-            <h2>Posts</h2>
-            <ul>
-                <li><a href="viewpost.html">A test video</a></li>
-            </ul>
+
+        <h2>Posts</h2>
+        <div id="users-post" class="container-fluid" id="video-grid">
+            <div class="row row-cols-1 g-4">
+                {{#if posts.length}}
+                {{#each posts}}
+                {{>videocard-form this}}
+                {{/each}}
+                {{else}}
+                <p>Nothing here yet. Go <a href="postvideo">upload a video!</a></p>
+                {{/if}}
+            </div>
         </div>
+
     </main>
 </body>
 

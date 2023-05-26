@@ -2,9 +2,10 @@ var express = require('express');
 var router = express.Router();
 
 const { isLoggedIn } = require("../middleware/auth");
+const { getCommentsForPostById, getPostById, getRecentPosts, getPostsByUser } = require("../middleware/posts");
 
 /* GET home page. */
-router.get('/', function (req, res, next) {
+router.get('/', getRecentPosts, async (req, res, next) => {
     res.render('index', {
         title: "TestTube",
         js: ["index.js"]
@@ -24,21 +25,32 @@ router.get("/registration", (req, res) => {
     });
 });
 
-router.get("/postvideo", (req, res) => {
+router.get("/postvideo", isLoggedIn, (req, res, next) => {
     res.render("postvideo", {
         title: "Post video"
     });
 });
 
-router.get("/profile", isLoggedIn, (req, res) => {
+router.get("/profile", isLoggedIn, getPostsByUser, (req, res, next) => {
     res.render("profile", {
-        title: "View profile"
+        title: "View profile",
+        js: ["profile.js"]
     });
 });
 
-router.get("/viewpost/:id", (req, res) => {
+router.get("/logout", (req, res, next) => {
+    req.session.destroy((err) => {
+        if (err) { next(err); }
+        return res.redirect("/");
+    });
+});
+
+
+router.get("/viewpost/:id(\\d+)", getPostById, getCommentsForPostById, function (req, res) {
+    console.log(req.body);
     res.render("viewpost", {
-        title: "View post"
+        title: `View Post ${req.params.id}`,
+        js: ["viewpost.js"]
     });
 });
 
