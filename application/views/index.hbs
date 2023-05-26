@@ -4,11 +4,8 @@
 <body>
     {{>header}}
 
-    <main id="content-area" class="container-fluid">
-        <h1>Video gallery</h1>
-        <h2 id="video-count"></h2>
-        <p>Click one to enter a time sink!</p>
-
+    <main id="content-area" class="container-sm p-4">
+        {{#if (nonEmpty posts)}}
         <div class="container-fluid" id="video-grid">
             <div class="row row-cols-1 row-cols-md-auto g-4">
                 {{#each posts}}
@@ -16,6 +13,10 @@
                 {{/each}}
             </div>
         </div>
+        {{else}}
+        <h2>It's lonely here...</h2>
+        <h3>Get started by <a href="registration">creating an account</a> and <a href="postvideo">upload a video</a>!</h3>
+        {{/if}}
     </main>
 
 </body>
