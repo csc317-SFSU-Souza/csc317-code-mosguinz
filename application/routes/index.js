@@ -33,7 +33,8 @@ router.get("/postvideo", (req, res) => {
 
 router.get("/profile", isLoggedIn, getPostsByUser, (req, res, next) => {
     res.render("profile", {
-        title: "View profile"
+        title: "View profile",
+        js: ["profile.js"]
     });
 });
 

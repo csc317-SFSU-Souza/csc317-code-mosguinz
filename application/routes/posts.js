@@ -58,5 +58,21 @@ router.get("/search", async (req, res, next) => {
     }
 });
 
+router.delete("/delete", isLoggedIn, async (req, res, next) => {
+    const { postId } = req.body;
+    const { userId } = req.session.user;
+    try {
+        console.log(postId, userId)
+        const result = await Post.deletePost(postId, userId);
+        console.log(result)
+        if (result && result.affectedRows) {
+            req.flash("error", "Your post has been deleted");
+            res.sendStatus(204);
+        }
+    } catch (err) {
+        next(err);
+    }
+});
+
 
 module.exports = router;
