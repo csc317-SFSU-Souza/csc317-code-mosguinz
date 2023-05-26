@@ -4,39 +4,40 @@
 <body>
     {{>header}}
     {{log this}}
-    <main>
-        <div class="container-sm">
-            <div class="video-title">
-                <h2>{{currentPost.title}}</h2>
-            </div>
-            <div class="video-author">
-                <p>{{currentPost.username}}</p>
-            </div>
-            <div class="video-publish-timestamp">
-                <p>{{currentPost.createdAt}}</p>
-            </div>
-            <div class="video-player">
-                <video width="600" height="400" controls>
-                    <source src="/{{currentPost.video}}" type="video/mp4" id="">
-                </video>
-            </div>
-            <div class="video-comments">
-                <h2>Comments</h2>
 
-                <div class="input-group mb-3" id="comment-box">
-                    <input type="text" class="form-control" id="comment-textarea"
-                        placeholder="Commenting as {{user.username}}">
-                    <button class="btn btn-outline-primary" type="button" id="comment-submit-button"
-                        data-postId="{{currentPost.id}}">Comment</button>
-                </div>
+    <main class="container-sm p-4">
 
-                <ul>
-                    {{#each currentPost.comments}}
-                    <li><b>{{this.username}}</b> {{this.content}}</li>
-                    {{/each}}
-                </ul>
-            </div>
+        <div class="video-title">
+            <h2>{{currentPost.title}}</h2>
         </div>
+        <div class="video-author">
+            <p>{{currentPost.username}}</p>
+        </div>
+        <div class="video-publish-timestamp">
+            <p>{{formatDate currentPost.createdAt}}</p>
+        </div>
+        <div class="video-player">
+            <video width="600" height="400" controls>
+                <source src="/{{currentPost.video}}" type="video/mp4">
+            </video>
+        </div>
+        <div class="video-comments">
+            <h2>Comments</h2>
+
+            <div class="input-group mb-3" id="comment-box">
+                <input type="text" class="form-control" id="comment-textarea"
+                    placeholder="Commenting as {{user.username}}">
+                <button class="btn btn-outline-primary" type="button" id="comment-submit-button"
+                    data-postId="{{currentPost.id}}">Comment</button>
+            </div>
+
+            <ul>
+                {{#each currentPost.comments}}
+                <li><b>{{this.username}}</b> {{this.content}}</li>
+                {{/each}}
+            </ul>
+        </div>
+
 
     </main>
 </body>

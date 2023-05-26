@@ -25,5 +25,6 @@ document.getElementById("comment-submit-button").addEventListener("click", async
     });
 
     console.log(await resp.json());
+    location.reload();
 
 })
