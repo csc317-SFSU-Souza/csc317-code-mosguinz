@@ -19,9 +19,26 @@ Please follow the instructions below and fill in the information requested when 
 # Build/Run Instructions
 
 ## Build Instructions
-1. steps here
-2. steps here
+1. `cd` into `applications/` folder.
+2. Create `.env` file with the following variables:
+```env
+DB_HOST="localhost"
+DB_NAME="csc317db"
+DB_USER="root"
+DB_PASSWORD="317"
+PORT=3000
+```
+3. Install dependencies
+```sh
+npm i
+```
+4. Set up database
+```sh
+npm run builddb
+```
 
 ## Run Instructions
-1. steps here
-2. steps here
+From `applications` folder, run
+```sh
+npm run start
+```
