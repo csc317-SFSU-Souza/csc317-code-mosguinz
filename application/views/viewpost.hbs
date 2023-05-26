@@ -23,18 +23,25 @@
         </div>
         <div class="video-comments">
             <h2>Comments</h2>
-
+            {{#if isLoggedIn}}
             <div class="input-group mb-3" id="comment-box">
                 <input type="text" class="form-control" id="comment-textarea"
                     placeholder="Commenting as {{user.username}}">
                 <button class="btn btn-outline-primary" type="button" id="comment-submit-button"
                     data-postId="{{currentPost.id}}">Comment</button>
             </div>
+            {{else}}
+            <p><a href="/login">Login</a> to join the conversation.</p>
+            {{/if}}
 
             <ul>
+                {{#if currentPost.comments.length}}
                 {{#each currentPost.comments}}
                 <li><b>{{this.username}}</b> {{this.content}}</li>
                 {{/each}}
+                {{else}}
+                <p>No comments yet. Be the first one!</p>
+                {{/if}}
             </ul>
         </div>
 
