@@ -11,7 +11,7 @@ class Post {
 
     static async getPostById(postId) {
         const [rows, _] = await db.execute(
-            `SELECT u.username, p.video, p.title, p.description, p.id, p.createdAt
+            `SELECT u.username, p.video, p.title, p.description, p.id, p.createdAt, p.fk_author AS author
             FROM posts p JOIN users u ON p.fk_author=u.id WHERE p.id=?;`,
             [postId]
         );
@@ -56,6 +56,24 @@ class Post {
             ON p.fk_author=u.id
             HAVING haystack like ?`,
             [`%${query}%`]
+        );
+        return rows;
+    }
+
+    static async deletePost(postId, userId) {
+        const post = await Post.getPostById(postId);
+        console.log("postid", postId)
+        console.log(post)
+        if (!post || post.author !== userId) {
+            throw new Error("You do not have permission to perform this action.");
+        }
+        var [rows, _] = await db.execute(
+            `DELETE FROM comments WHERE fk_post=?`,
+            [postId]
+        );
+        var [rows, _] = await db.execute(
+            `DELETE FROM posts WHERE id=?`,
+            [postId]
         );
         return rows;
     }
