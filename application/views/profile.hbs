@@ -15,7 +15,7 @@
         <h2>Posts</h2>
         <div id="users-post" class="container-fluid" id="video-grid">
             <div class="row row-cols-1 g-4">
-                {{#if (nonEmpty posts)}}
+                {{#if posts.length}}
                 {{#each posts}}
                 {{>videocard-form this}}
                 {{/each}}
