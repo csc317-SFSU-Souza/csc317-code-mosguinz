@@ -11,6 +11,8 @@
         </ul>
     </nav> --}}
 
+    {{log this}}
+
     <nav data-bs-theme="dark" class="navbar navbar-expand-lg bg-body-tertiary">
         <div class="container-fluid">
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
@@ -24,22 +26,24 @@
                     <li class="nav-item">
                         <a class="nav-link active" aria-current="page" href="/">Home</a>
                     </li>
-                    <li class="nav-item dropdown">
-                        <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown"
-                            aria-expanded="false">
-                            Login
-                        </a>
-                        <ul class="dropdown-menu">
-                            <li><a class="dropdown-item" href="/profile">Profile</a></li>
-                            <li><a class="dropdown-item" href="/registration">Sign up</a></li>
-                            <li><a class="dropdown-item" href="/viewpost">View post</a></li>
-                            <li><a class="dropdown-item" href="/postvideo">Post video</a></li>
-                            <li>
-                                <hr class="dropdown-divider">
-                            </li>
-                            <li><a class="dropdown-item" href="/logout">Logout</a></li>
-                        </ul>
+                    {{#if isLoggedIn}}
+                    <li class="nav-item">
+                        <a class="nav-link active" href="/profile">Profile</a>
                     </li>
+                    <li class="nav-item">
+                        <a class="nav-link active" href="/postvideo">Post video</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link active" href="/logout">Logout</a>
+                    </li>
+                    {{else}}
+                    <li class="nav-item">
+                        <a class="nav-link active" href="/login">Log in</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link active" href="/registration">Sign up</a>
+                    </li>
+                    {{/if}}
                 </ul>
 
                 <form class="d-flex" action="/posts/search" method="GET" enctype="application/x-www-form-urlencoded"
@@ -47,8 +51,7 @@
                     <div class="input-group mb-2">
                         <input type="text" class="form-control" name="searchQuery" placeholder="Search TestTube"
                             aria-describedby="search-button">
-                        <button class="btn btn-outline-light" type="submit" id="search-button"
-                            >🔍</button>
+                        <button class="btn btn-outline-light" type="submit" id="search-button">🔍</button>
                     </div>
                 </form>
 

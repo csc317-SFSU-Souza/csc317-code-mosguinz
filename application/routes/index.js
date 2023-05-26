@@ -25,7 +25,7 @@ router.get("/registration", (req, res) => {
     });
 });
 
-router.get("/postvideo", (req, res) => {
+router.get("/postvideo", isLoggedIn, (req, res, next) => {
     res.render("postvideo", {
         title: "Post video"
     });
